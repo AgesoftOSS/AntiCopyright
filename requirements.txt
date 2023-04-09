@@ -1,0 +1,6 @@
+beautifulsoup4
+webdriver-manager
+art
+lxml
+requests
+selenium
