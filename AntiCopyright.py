@@ -15,7 +15,7 @@ WINPATH = "C:\\AntiCopyright"
 LINUXPATH = "//dev/AntiCopyright"
 
 # Logs Results to a file
-def LogResults(start_time : int, uniqueURLs : list, links : list):
+def LogResults(start_time : int, uniqueURLs : list, links : list, query : str, sitetext : list, pages):
 
     # Creating the file
     currentTime = round(time.time() * 1000)
@@ -87,7 +87,7 @@ def ScrapGoogle(query : str, pages : int):
 
         if phn not in uniqueURLs:
             uniqueURLs.append(phn)
-    LogResults(start_time, uniqueURLs, links)
+    LogResults(start_time, uniqueURLs, links, query, sitetext, pages)
 
 tprint("AntiCopyright")
 print("------------------------------[  By  Agesoft   ]--------------------------------")
@@ -146,7 +146,8 @@ if choice == 2:
                 scannedpages = scannedpages + 1
     except KeyboardInterrupt:
         print("Scrapping stopped")
-        LogResults(None, uniqueURLs, links)
+        LogResults(0.0, uniqueURLs, links, query, sitetext, scannedpages)
+
 
 if choice > 2:
     print("Error: Invalid Choice")
